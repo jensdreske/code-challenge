@@ -9,7 +9,8 @@ export namespace Components {
     interface CtaComponent {
         "ctaText": string;
         "ctaTitle": string;
-        "imageSearchterm": string;
+        "imageAlt": string;
+        "imageLink": string;
         "linkText": string;
         "visible": boolean;
     }
@@ -39,7 +40,8 @@ declare namespace LocalJSX {
     interface CtaComponent {
         "ctaText"?: string;
         "ctaTitle"?: string;
-        "imageSearchterm"?: string;
+        "imageAlt"?: string;
+        "imageLink"?: string;
         "linkText"?: string;
         "visible"?: boolean;
     }

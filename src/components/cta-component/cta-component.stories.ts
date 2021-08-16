@@ -13,7 +13,11 @@ export default {
 };
 
 export const empty = ({
-  imageContent = text('unsplash search term', 'mountains, hiking'),
+  ctaImage = text(
+    'Image Source',
+    'https://source.unsplash.com/featured/800x450/?mountains, climbing',
+  ),
+  ctaImageAlt = text('alt text', 'a random image'),
   ctaTitle = text('Call to action title', 'Example Title'),
   ctaText = text(
     'Call to action text',
@@ -21,7 +25,8 @@ export const empty = ({
   ),
   linkText = text('Button link text', 'Click Me, now!'),
 }: {
-  imageContent?: string;
+  ctaImage?: string;
+  ctaImageAlt?: string;
   ctaTitle?: string;
   ctaText?: string;
   linkText?: string;
@@ -30,7 +35,7 @@ export const empty = ({
       cta-title="${ctaTitle}" 
       cta-text="${ctaText}" 
       link-text="${linkText}" 
-      image-Searchterm="${imageContent}">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima eveniet laudantium sunt reiciendis cum neque repudiandae deserunt nobis necessitatibus, quia, rerum laborum a nostrum mollitia fuga provident omnis voluptates odio
+      image-Link="${ctaImage}"
+      image-alt="${ctaImageAlt}">
       </cta-component>
 `;

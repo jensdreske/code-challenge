@@ -14,7 +14,9 @@ export class CtaComponent {
 
   @Prop() linkText: string;
 
-  @Prop() imageSearchterm: string;
+  @Prop() imageLink: string;
+
+  @Prop() imageAlt: string;
 
   @Prop({
     mutable: true,
@@ -45,10 +47,7 @@ export class CtaComponent {
             </div>
           </section>
           <div class="imageContainer">
-            <img
-              src={`https://source.unsplash.com/featured/800x450/?${this.imageSearchterm}`}
-              alt={this.imageSearchterm}
-            />
+            <img src={this.imageLink} alt={this.imageAlt} />
           </div>
         </article>
         <div class={this.visible ? 'contactbox visible' : 'contactbox'}>
