@@ -1,0 +1,142 @@
+$playfair-display: 'Playfair Display', serif;
+$roboto-condensed: 'Roboto Condensed', sans-serif;
+$contactbox-color: hsl(220, 40%, 20%);
+
+:host {
+  display: block;
+  // box-sizing: border-box;
+}
+
+article {
+  font-family: $playfair-display;
+}
+
+button {
+  font-size: 12px;
+  font-weight: 400;
+  border: none;
+  padding: .5rem 1rem;
+}
+
+.ctaBox {
+  display: grid;
+}
+
+.ctaTextboxWrapper {
+  background-color: hsl(0, 0%, 90%);
+  display: grid;
+  grid-template-rows: 1fr 3fr 1fr;
+  grid-template-columns: 1fr 4fr 1fr;
+  z-index: 10;
+
+  .ctaTextbox {
+    grid-area: 2/2;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-weight: 700;
+    font-size: 24px;
+    margin: 0;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  button {
+    color: white;
+    background-color: black;
+  }
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  background-color: burlywood;
+  grid-row-start: 1;
+  z-index: 10;
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.contactbox {
+  background-color: $contactbox-color;
+  color: white;
+  display: grid;
+  font-family: $roboto-condensed;
+  grid-row-gap: 1rem;
+  grid-template-columns: 1fr 3fr 1fr 1fr;
+  grid-template-rows: min-content;
+  margin-top: 1rem;
+  min-height: 150px;
+  opacity: 0;
+  padding: 1rem 0;
+  position: relative;
+  transition: transform 1s ease, opacity 2s ease;
+  transform: translateY(-120%);
+  z-index: 0;
+
+  h2 {
+    margin: 0;
+    grid-column-start: 2;
+  }
+
+  .triangle {
+    background-color: $contactbox-color;
+    clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+    height: .66rem;
+    position: absolute;
+    bottom: 99%;
+    width: 1rem;
+    grid-column-start: 2;
+  }
+
+  button {
+    background: hsl(0, 0%, 90%);
+    color: $contactbox-color;
+    font-weight: bold;
+    border: none;
+    grid-column-end: -2;
+    justify-self: end;
+    align-self: start;
+  }
+
+  .contactInfo {
+    grid-column: 2 / -2;
+  }
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0%);
+}
+
+@media (min-width: 600px) {
+  .ctaBox {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .imageContainer {
+    grid-row-start: 1;
+    grid-column-end: -1;
+  }
+
+  .contactbox {
+    grid-column: 1 / -1;
+    grid-template-columns: 2fr 9fr 1fr 2fr;
+  }
+
+  .ctaTextboxWrapper {
+    grid-template-columns: 2fr 4fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+}

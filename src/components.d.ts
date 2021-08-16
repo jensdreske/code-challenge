@@ -6,11 +6,24 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface CtaComponent {
+        "ctaText": string;
+        "ctaTitle": string;
+        "imageSearchterm": string;
+        "linkText": string;
+        "visible": boolean;
+    }
     interface ExampleComponent {
         "exampleProp": string;
     }
 }
 declare global {
+    interface HTMLCtaComponentElement extends Components.CtaComponent, HTMLStencilElement {
+    }
+    var HTMLCtaComponentElement: {
+        prototype: HTMLCtaComponentElement;
+        new (): HTMLCtaComponentElement;
+    };
     interface HTMLExampleComponentElement extends Components.ExampleComponent, HTMLStencilElement {
     }
     var HTMLExampleComponentElement: {
@@ -18,14 +31,23 @@ declare global {
         new (): HTMLExampleComponentElement;
     };
     interface HTMLElementTagNameMap {
+        "cta-component": HTMLCtaComponentElement;
         "example-component": HTMLExampleComponentElement;
     }
 }
 declare namespace LocalJSX {
+    interface CtaComponent {
+        "ctaText"?: string;
+        "ctaTitle"?: string;
+        "imageSearchterm"?: string;
+        "linkText"?: string;
+        "visible"?: boolean;
+    }
     interface ExampleComponent {
         "exampleProp"?: string;
     }
     interface IntrinsicElements {
+        "cta-component": CtaComponent;
         "example-component": ExampleComponent;
     }
 }
@@ -33,6 +55,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "cta-component": LocalJSX.CtaComponent & JSXBase.HTMLAttributes<HTMLCtaComponentElement>;
             "example-component": LocalJSX.ExampleComponent & JSXBase.HTMLAttributes<HTMLExampleComponentElement>;
         }
     }
