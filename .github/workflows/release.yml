@@ -35,7 +35,7 @@ jobs:
       - run: npm ci
 
       - name: Get old package version
-        uses: martinbeentjes/npm-get-version-action@v1.1.0
+        uses: martinbeentjes/npm-get-version-action@v1.2.3
         id: package-version-old
 
       - name: Build
@@ -48,7 +48,7 @@ jobs:
           GH_TOKEN: ${{ secrets.VI_SUDO_BOT_ALLREPO_READ_WRITE_WEBHOOKS }}
 
       - name: Get new package version
-        uses: martinbeentjes/npm-get-version-action@v1.1.0
+        uses: martinbeentjes/npm-get-version-action@v1.2.3
         id: package-version-new
 
       - name: Extract repository name
